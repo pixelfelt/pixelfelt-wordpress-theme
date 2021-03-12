@@ -11,3 +11,10 @@ include get_stylesheet_directory() . '/shortcodes/global.php';
 add_action('admin_enqueue_scripts', function ($hook) {
   wp_enqueue_style('admin_styles', get_stylesheet_directory_uri() . '/style-admin.css');
 });
+
+/**
+ * Frontend
+ */
+add_action('wp_enqueue_scripts', function () {
+  wp_enqueue_script('global_scripts', get_stylesheet_directory_uri() . '/js/global.js', [], null, true);
+});
