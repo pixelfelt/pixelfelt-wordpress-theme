@@ -17,4 +17,5 @@ add_action('admin_enqueue_scripts', function ($hook) {
  */
 add_action('wp_enqueue_scripts', function () {
   wp_enqueue_script('global_scripts', get_stylesheet_directory_uri() . '/js/global.js', [], null, true);
+  wp_enqueue_script('handsfree', get_stylesheet_directory_uri() . '/js/handsfree/handsfree.js', [], null, true);
 });
