@@ -15,16 +15,8 @@
 - Install and activate the Impreza Plugins: UpSolution Core, WPBakery, and Custom Post Type UI in Impreza by visiting `/wp-admin/admin.php?page=us-addons`
 - Install [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro/)
 - Import Custom Post Type UI data from `./setup/custom-post-type-ui.json` into `/wp-admin/admin.php?page=cptui_tools`
+- Import Advanced Custom Fields data from `./setup/advanced-custom-fields.json` into `/wp-admin/edit.php?post_type=acf-field-group&page=acf-tools`
 
-# Local Development
+## Local Development
 
-I find it easiest to just [install Local by Flywheel](https://localwp.com/), creating a new website, and following the steps above.
-
-## Notes
-- Requires:
-  - Theme: 
-  - Plugins:
-    - 
-    - [Advanced Custom Fields](https://www.advancedcustomfields.com/)
-    - [CPT UI](https://wordpress.org/plugins/custom-post-type-ui/)
-      - Import with `/setup/custom-post-type-ui.json`
+I find it easiest to just [install Local by Flywheel](https://localwp.com/) and use it to automatically setup WordPress and dependencies (PHP, MySQL, etc)
