@@ -31,6 +31,7 @@ add_shortcode('site-visit-links', function () {
 
 /**
  * Displays a bookmarklet as a button
+ * - Also enqueues the bookmarklet loader
  */
 add_shortcode('site-bookmark', function () {
   global $post;
@@ -40,7 +41,7 @@ add_shortcode('site-bookmark', function () {
       <strong>Drag this to your bookmarks 👇</strong>
     </p>
     <div class="w-btn-wrapper width_auto align_left">
-      <a class="w-btn us-btn-style_1" href="#">
+      <a class="w-btn us-btn-style_1" href="javascript:<?= esc_attr(file_get_contents(get_stylesheet_directory() . '/js/bookmarklet.js')) ?>">
         <span class="w-btn-label"><?= $post->post_title ?> 🖐👀🖐</span>
       </a>
     </div>
