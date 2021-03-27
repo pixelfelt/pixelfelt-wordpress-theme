@@ -5,7 +5,7 @@
 > # Setup Cost ($59 - $108+)
 > As a shortcut to building everything myself from scratch I'm using the following:
 > - $59 for the [Impreza Theme](https://themeforest.net/item/impreza-retina-responsive-wordpress-theme/6434280)
-> - $49/yr for [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro/) (although I personally don't pay this as I was an early adopter)
+> - $49/yr for [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro/) (unless you were an early adopter)
 
 ---
 
