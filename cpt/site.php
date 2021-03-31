@@ -1,6 +1,4 @@
 <?php
-use MatthiasMullie\Minify;
-
 /**
  * Displays the author of the bookmark
  */
@@ -22,10 +20,28 @@ add_shortcode('site-visit-links', function () {
     <ul class="site-visit-links">
       <?php foreach ($links as $link): ?>
         <li>
-          <a href="<?= $link['site_link'] ?>"><?= $link['site_link'] ?></a>
+          <a href="<?= $link['site_link'] ?>" target="_blank"><?= $link['site_link'] ?></a>
         </li>
       <?php endforeach ?>
     </ul>
     
   <?php return ob_get_clean();
+});
+
+/**
+ * Displays a video from a site
+ */
+add_shortcode('site-card-media', function () {
+  global $post;
+
+  $links = get_field('site_links_to_try');
+  $html = '<p><strong>No media found</strong></p>';
+
+  if (count($links) && $links[0]['site_link_video']):
+    ob_start(); ?>
+      <video src="<?= $links[0]['site_link_video']['url'] ?>" controls muted autoplay loop></video>
+    <?php $html = ob_get_clean();
+  endif;
+
+  return $html;
 });
