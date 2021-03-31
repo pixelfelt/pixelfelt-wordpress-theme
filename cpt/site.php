@@ -39,7 +39,7 @@ add_shortcode('site-card-media', function () {
 
   if (count($links) && $links[0]['site_link_video']):
     ob_start(); ?>
-      <video src="<?= $links[0]['site_link_video']['url'] ?>" controls muted autoplay loop></video>
+      <video src="<?= $links[0]['site_link_video']['url'] ?>" controls muted loop></video>
     <?php $html = ob_get_clean();
   endif;
 

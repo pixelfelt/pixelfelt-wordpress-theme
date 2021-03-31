@@ -1,18 +1,27 @@
-/**
- * Supress Twitter errors 
- */
-// window.onerror = function () {
-//   console.log('onERROR', arguments)
-//   return false
-// }
-// window.addEventListener('error', function() {
-//   console.log('ERROR LISTENER', arguments)
-//   return false
-// })
+$ = jQuery
+;(function () {
+  /**
+   * Autoplay active video inside carousels
+   */
+  $('.owl-carousel').on('changed.owl.carousel', function () {
+    setTimeout(() => {
+      const $video = $(this).find('.owl-item.active video')
+      
+      $(this).find('video').trigger('pause')
+      $video.attr('controls', null)
+      $video.trigger('play')
+
+      // If controls are visible when played, then they will briefly appear
+      // before fading out (at least on Chrome)
+      setTimeout(() => {
+        $video.attr('controls', true)
+      }, 250)
+    })
+  })
+})();
 
 /**
- * Clear twitter errors
- */
+ * Clear Twitter widget warnings and errors
 function checkForTwitterErrors () {
   if (!window.twttr) {
     setTimeout(() => {
@@ -45,3 +54,4 @@ function checkForTwitterErrors () {
   }
 }
 checkForTwitterErrors()
+ */
