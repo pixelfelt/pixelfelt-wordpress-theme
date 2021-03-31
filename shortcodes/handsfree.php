@@ -4,7 +4,7 @@
  * 
  * Displays a Handsfree button
  */
-add_shortcode('handsfree', function ($atts) {
+add_shortcode('handsfree-button', function ($atts) {
   $atts = shortcode_atts([
     'start' => 'Try this demo',
     'loading' => 'Loading...',
