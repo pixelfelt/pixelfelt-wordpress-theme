@@ -221,22 +221,6 @@
         "title": "Sites",
         "fields": [
             {
-                "key": "field_605ecc3357536",
-                "label": "Source",
-                "name": "site_source",
-                "type": "url",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "placeholder": ""
-            },
-            {
                 "key": "field_605f65863f917",
                 "label": "Site links to try",
                 "name": "site_links_to_try",
@@ -252,7 +236,7 @@
                 "collapsed": "",
                 "min": 0,
                 "max": 0,
-                "layout": "table",
+                "layout": "block",
                 "button_label": "",
                 "sub_fields": [
                     {
@@ -289,6 +273,60 @@
                         },
                         "default_value": "",
                         "placeholder": ""
+                    },
+                    {
+                        "key": "field_60627b7ecde78",
+                        "label": "Site link script",
+                        "name": "site_link_script",
+                        "type": "url",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": ""
+                    },
+                    {
+                        "key": "field_60627b92cde79",
+                        "label": "Site link description",
+                        "name": "site_link_description",
+                        "type": "wysiwyg",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "tabs": "all",
+                        "toolbar": "full",
+                        "media_upload": 1,
+                        "delay": 0
+                    },
+                    {
+                        "key": "field_6063441926f2d",
+                        "label": "Site link video",
+                        "name": "site_link_video",
+                        "type": "file",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array",
+                        "library": "uploadedTo",
+                        "min_size": "",
+                        "max_size": 5,
+                        "mime_types": ""
                     }
                 ]
             }
