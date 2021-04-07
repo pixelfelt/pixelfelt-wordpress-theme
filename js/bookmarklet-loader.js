@@ -1,1 +1,1 @@
-;(function ($) {const $script = document.createElement('script'); $script.src = 'https://unpkg.com/pixelfelt-sites@latest/loader.js?t=' + Math.random(); document.body.appendChild($script);})();
+;(function ($) {const $script = document.createElement('script'); $script.src = 'https://unpkg.com/pixelfelt-sites@latest/loader.js?t=' + Math.random(); $script.onerror = function () {alert('😞 Pixelfelt Load Error\n\nPlease refresh the page and try again. If you get this message again then Pixelfelt might not work on this page.')}; document.body.appendChild($script);})();
