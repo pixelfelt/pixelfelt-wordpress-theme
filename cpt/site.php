@@ -50,3 +50,21 @@ add_shortcode('site-card-media', function ($atts) {
 
   return $html;
 });
+
+/**
+ * Displays a random link from the site
+ */
+add_shortcode('site-random-link', function () {
+  global $post;
+
+  $links = get_field('site_links_to_try');
+  $html = '<p><strong>No links found</strong></p>';
+
+  if (count($links) && $links[0]['site_link']):
+    ob_start(); ?>
+      <div><strong>Site link</strong>: <a href="<?= $links[0]['site_link'] ?>"><?= $links[0]['site_link_label'] ?></a>
+    <?php $html = ob_get_clean();
+  endif;
+
+  return $html;
+});
