@@ -10,8 +10,12 @@ add_shortcode('site-bookmark-last-update', function () {
 /**
  * Lists links to visit
  */
-add_shortcode('site-visit-links', function () {
+add_shortcode('site-visit-links', function ($atts) {
   global $post;
+
+  $atts = shortcode_atts([
+    'description' => false
+  ], $atts);
 
   $links = get_field('site_links_to_try');
   
@@ -21,6 +25,7 @@ add_shortcode('site-visit-links', function () {
       <?php foreach ($links as $link): ?>
         <li>
           <a href="<?= $link['site_link'] ?>" target="_blank"><?= $link['site_link'] ?></a>
+          <?php if ($atts['description'])  echo '<div class="site-link-description">' . $link['site_link_description'] . '</div>'; ?>
         </li>
       <?php endforeach ?>
     </ul>
