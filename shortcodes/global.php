@@ -16,14 +16,26 @@ add_shortcode('title', function ($atts) {
  */
 add_shortcode('author-meta', function () {
   global $post;
+  
+  $links = get_field('user_meta_links', 'user_' . get_the_author_meta('ID'));
 
   ob_start(); ?>
     <div class="author-meta">
-      <?= get_avatar(get_the_author_meta('ID'), 128) ?>
-      <div class="author-meta-details">
-        <h3><?= get_the_author_meta('display_name') ?></h3>
+      <div>
+        <?= get_avatar(get_the_author_meta('ID'), 128) ?>
       </div>
-      <p><?= get_the_author_meta('description') ?></p>
+      <div>
+        <p><?= get_the_author_meta('description') ?></p>
+        <?php if ($links): ?>
+          <ul class="author-links">
+            <?php foreach ($links as $link): ?>
+              <li>
+                <a href="<?= $link['user_meta_links_link'] ?>" target="_blank"><?= $link['user_meta_links_label'] ?></a>
+              </li>
+            <?php endforeach ?>      
+          </ul>
+        <?php endif ?>
+      </div>
     </div>
   <?php return ob_get_clean();
 });

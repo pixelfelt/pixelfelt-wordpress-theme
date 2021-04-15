@@ -21,14 +21,16 @@ add_shortcode('site-visit-links', function ($atts) {
   
   ob_start(); ?>
 
-    <ul class="site-visit-links">
-      <?php foreach ($links as $link): ?>
-        <li>
-          <a href="<?= $link['site_link'] ?>" target="_blank"><?= $link['site_link'] ?></a>
-          <?php if ($atts['description'])  echo '<div class="site-link-description">' . $link['site_link_description'] . '</div>'; ?>
-        </li>
-      <?php endforeach ?>
-    </ul>
+    <?php if ($links): ?>
+      <ul class="site-visit-links">
+        <?php foreach ($links as $link): ?>
+          <li>
+            <a href="<?= $link['site_link'] ?>" target="_blank"><?= $link['site_link'] ?></a>
+            <?php if ($atts['description'])  echo '<div class="site-link-description">' . $link['site_link_description'] . '</div>'; ?>
+          </li>
+        <?php endforeach ?>
+      </ul>
+    <?php endif ?>
     
   <?php return ob_get_clean();
 });
