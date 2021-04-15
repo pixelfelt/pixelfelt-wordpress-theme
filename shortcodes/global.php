@@ -39,3 +39,15 @@ add_shortcode('author-meta', function () {
     </div>
   <?php return ob_get_clean();
 });
+
+/**
+ * Display an authors username and link
+ */
+add_shortcode('author-name-link', function () {
+  global $post;
+
+  $name = get_the_author_meta('display_name');
+  $link = get_author_posts_url(get_the_author_meta('ID'));
+  
+  return "<a href='$link'>$name</a>";
+});
