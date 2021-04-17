@@ -14,7 +14,9 @@
 - Install and activate this repository either manually, by [downloading and uploading the latest zip](https://github.com/pixelfelt/pixelfelt-wordpress-theme/archive/refs/heads/master.zip), or with automatic updates through git with [WP Pusher](https://wppusher.com/)
 - Install and activate the Impreza Plugins: UpSolution Core, WPBakery, and Custom Post Type UI in Impreza by visiting `/wp-admin/admin.php?page=us-addons`
 - Install [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro/)
-- Import Custom Post Type UI data from `./setup/custom-post-type-ui.json` into `/wp-admin/admin.php?page=cptui_tools`
+- Import Custom Post Type UI data from:
+  - `./setup/custom-post-type-ui--post-types.json` into `/wp-admin/admin.php?page=cptui_tools`
+  - `./setup/custom-post-type-ui--taxonomies.json` into `/wp-admin/admin.php?page=cptui_tools&action=taxonomies`
 - Import Advanced Custom Fields data from `./setup/advanced-custom-fields.json` into `/wp-admin/edit.php?post_type=acf-field-group&page=acf-tools`
 
 ## Local Development
