@@ -93,3 +93,20 @@ add_shortcode('site-link-description', function () {
 
   return do_shortcode($html);
 });
+
+/**
+ * Displays the site's code
+ */
+add_shortcode('site-code-embed', function () {
+  global $post;
+  $links = get_field('site_links_to_try');
+  $html = '';
+
+  if (count($links)) :
+    ob_start(); ?>
+      <script src="https://gist-it.appspot.com/<?= $links[0]['site_link_script'] ?>"></script>
+    <?php $html = ob_get_clean();
+  endif;
+
+  return do_shortcode($html);
+});
