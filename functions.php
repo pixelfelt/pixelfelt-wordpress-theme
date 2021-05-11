@@ -1,5 +1,6 @@
 <?php
 /* Custom functions code goes here. */
+include get_stylesheet_directory() . '/cpt/handsfreejs-example.php';
 include get_stylesheet_directory() . '/cpt/plugin.php';
 include get_stylesheet_directory() . '/cpt/site.php';
 include get_stylesheet_directory() . '/shortcodes/global.php';
