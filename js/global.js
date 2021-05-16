@@ -55,11 +55,11 @@ $ = jQuery
     
     // Shoot after handsfree receives data
     if ($(this).hasClass('handsfree-show-when-stopped')) {
-      bounds = $('~ .handsfree-show-when-loading', this)[0].getBoundingClientRect()
-      config.origin.x = (bounds.x + bounds.width / 2) / window.innerWidth,
-      config.origin.y = bounds.y / window.innerHeight
-
       handsfree.on('data', () => {
+        bounds = $('~ .handsfree-show-when-started', this)[0].getBoundingClientRect()
+        config.origin.x = (bounds.x + bounds.width / 2) / window.innerWidth,
+        config.origin.y = bounds.y / window.innerHeight
+
         confetti(config)
       }, {once: true})
 
