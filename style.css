@@ -161,4 +161,5 @@ table {
 /* P5 */
 .demo-p5-handtracking-draw {
 	box-shadow: 0 0 3px rgba(0,0,0,0.35);
+	background: #fff;
 }
