@@ -21,7 +21,7 @@
     
     // Create the plugin
     handsfree.use('demoAframeLookaround', ({weboji}) => {
-      if (!weboji.isDetected) return
+      if (!weboji || !weboji.isDetected) return
   
       // Calculate rotation
       const rot = weboji.degree

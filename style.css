@@ -173,3 +173,12 @@ table {
 	background: #fff;
 	margin-bottom: 1em;
 }
+
+/* Handsfree Helpers */
+body:not(.handsfree-model-weboji) .handsfree-show-start-when-no-weboji .handsfree-show-when-stopped {display: inline-block !important;}
+body:not(.handsfree-model-weboji).handsfree-loading .handsfree-show-start-when-no-weboji .handsfree-show-when-stopped {display: none !important;}
+body:not(.handsfree-model-weboji) .handsfree-show-start-when-no-weboji .handsfree-show-when-started {display: none !important;}
+
+body:not(.handsfree-model-hands) .handsfree-show-start-when-no-hands .handsfree-show-when-stopped {display: inline-block !important;}
+body:not(.handsfree-model-hands).handsfree-loading .handsfree-show-start-when-no-hands .handsfree-show-when-stopped {display: none !important;}
+body:not(.handsfree-model-hands) .handsfree-show-start-when-no-hands .handsfree-show-when-started {display: none !important;}
