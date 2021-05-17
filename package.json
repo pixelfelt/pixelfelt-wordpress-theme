@@ -1,7 +1,7 @@
 {
-  "name": "pixelfelt-wordpress-theme",
+  "name": "handsfree.dev-wordpress-theme",
   "version": "0.0.1",
-  "description": "The Impreza-based WordPress theme for HandsfreeJS.org",
+  "description": "The Impreza-based WordPress theme for Handsfree.dev",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

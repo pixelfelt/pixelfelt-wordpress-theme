@@ -53,6 +53,15 @@ table {
 	width: 100%
 }
 
+.l-section.color_alternate .has_text_color h1,
+.l-section.color_alternate .has_text_color h2,
+.l-section.color_alternate .has_text_color h3,
+.l-section.color_alternate .has_text_color h4,
+.l-section.color_alternate .has_text_color h5,
+.l-section.color_alternate .has_text_color h6 {
+	color: #fff !important;
+}
+
 /* Home */
 .w-grid-item.post-403 a,
 .w-grid-item.post-403 img {
