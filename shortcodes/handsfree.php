@@ -5,17 +5,19 @@
  * Displays a Handsfree button
  */
 add_shortcode('handsfree-button', function ($atts) {
-  wp_enqueue_script('confetti', 'https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js', [], null, true);
+  wp_enqueue_script('confetti', get_stylesheet_directory_uri() . '/lib/confetti.js', [], null, true);
   
   $atts = shortcode_atts([
     'start' => 'Enable Hand Tracking ✨👌',
     'loading' => 'Loading...',
-    'stop' => 'Stop Hand Tracking'
+    'stop' => 'Stop Hand Tracking',
+    'update' => '',
+    'class' => ''
   ], $atts);
   
   ob_start(); ?>
-    <div class="w-btn-wrapper width_auto align_left">
-      <button class="w-btn us-btn-style_1 handsfree-show-when-stopped confetti-on-click" onclick="handsfree.start()">
+    <div class="w-btn-wrapper width_auto align_left <?= $atts['class'] ?>">
+      <button class="w-btn us-btn-style_1 handsfree-show-when-stopped confetti-on-click" data-update="<?= htmlspecialchars($atts['update']) ?>" onclick="handsfree.update(jsonlite.parse(this.getAttribute('data-update'))); handsfree.start()">
         <span class="w-btn-label"><?= $atts['start'] ?></span>
       </button>
       <button class="w-btn us-btn-style_1 handsfree-show-when-loading">
