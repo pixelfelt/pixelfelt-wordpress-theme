@@ -1,5 +1,9 @@
 $('.demo-p5-handtracking-draw').each(function () {
   let $this = this
+  let prevPointer = [
+    [{x: 0, y: 0}, {x: 0, y: 0}, {x: 0, y: 0}, {x: 0, y: 0}],
+    [{x: 0, y: 0}, {x: 0, y: 0}, {x: 0, y: 0}, {x: 0, y: 0}]
+  ]
   
   this.p5 = new p5(function (p) {
     /** 
@@ -23,11 +27,8 @@ $('.demo-p5-handtracking-draw').each(function () {
      * Main draw loop
      */
     p.draw = function () {
-      p.background('rgba(0,0,0,0)')
-      p.clear()
       fingerPaint()
       mousePaint()
-      drawPaint()
     }
     
     /**
@@ -35,14 +36,12 @@ $('.demo-p5-handtracking-draw').each(function () {
      * Since p5.js already has it's own loop, we just check the data directly
      * @see https://handsfree.js.org/ref/plugin/pinchers.html
      */
-    // Whenever we pinch and move we'll store those points as a set of [x1, y1, handIndex, fingerIndex, size]
-    let paint = []
-    
     const fingerPaint = function () {
       // Check for pinches and create dots if something is pinched
       const hands = handsfree.data?.hands
       let bounds = $this.getBoundingClientRect()
 
+      // Paint with fingers
       if (hands?.pinchState) {
         // Loop through each hand
         hands.pinchState.forEach((hand, handIndex) => {
@@ -50,17 +49,28 @@ $('.demo-p5-handtracking-draw').each(function () {
           
           // Loop through each finger
           hand.forEach((state, finger) => {
-            // Other states are "start" and "released"
-            if (state === 'held' && hands.pointer[handIndex].y >= bounds.y && hands.pointer[handIndex].y <= bounds.y + bounds.height) {
-              // Left [0] index finger [0] is the eraser, so let's make it paint larger
-              const circleSize = handIndex === 0 && finger === 0 ? 40 : 10
+            if (hands.pointer[handIndex].y >= bounds.y && hands.pointer[handIndex].y <= bounds.y + bounds.height) {
+              let x = hands.pointer[handIndex].x - bounds.x
+              let y = hands.pointer[handIndex].y - bounds.y
               
-              // Store the paint
-              paint.push([
-                hands.pointer[handIndex].x - bounds.x,
-                hands.pointer[handIndex].y - bounds.y,
-                handIndex, finger, circleSize
-              ])
+              p.fill(colorMap[handIndex][finger])
+              p.stroke(colorMap[handIndex][finger])
+              p.strokeWeight(10)
+      
+              // Draw a circle on the spot that we started
+              if (state === 'start') {
+                prevPointer[handIndex, finger] = {x, y}
+
+              // Draw line from circle
+              } else if (state === 'held') {
+                p.line(prevPointer[handIndex, finger].x, prevPointer[handIndex, finger].y, x, y)
+              }
+
+              // Set the last position
+              prevPointer[handIndex, finger] = {
+                x: hands.pointer[handIndex].x - bounds.x,
+                y: hands.pointer[handIndex].y - bounds.y
+              }
             }
           })
         })  
@@ -68,7 +78,7 @@ $('.demo-p5-handtracking-draw').each(function () {
         
       // Clear everything if the left [0] pinky [3] is pinched
       if (hands?.pinchState && hands.pinchState[0][3] === 'released') {
-        paint = []
+        p.background(255, 255, 255)
       }
     }
 
@@ -77,27 +87,11 @@ $('.demo-p5-handtracking-draw').each(function () {
      */
     const mousePaint = function () {
       if (p.mouseIsPressed === true) {
-        paint.push([p.mouseX, p.mouseY, 1, 0, 10])
+        p.fill(colorMap[1][0])
+        p.stroke(colorMap[1][0])
+        p.strokeWeight(10)
+        p.line(p.mouseX, p.mouseY, p.pmouseX, p.pmouseY)
       }
-    }
-
-    /**
-     * Draw the paint
-     */
-    const drawPaint = function () {
-      // Draw the paint
-      paint.forEach((dot, i) => {
-        p.fill(colorMap[dot[2]][dot[3]])
-        p.stroke(colorMap[dot[2]][dot[3]])
-        p.strokeWeight(dot[4])
-    
-        // Draw line
-        if (i > 0) {
-          p.line(paint[i-1][0], paint[i-1][1], paint[i][0], paint[i][1])
-        } else {
-          p.circle(dot[0], dot[1], dot[4])
-        }
-      })      
     }
   }, this)
 })
