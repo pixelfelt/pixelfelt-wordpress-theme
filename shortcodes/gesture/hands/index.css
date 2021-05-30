@@ -1,0 +1,28 @@
+.gesture-emoji {
+  font-size: 30px;
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  opacity: 0.2;
+}
+.gesture-emoji.active {
+  opacity: 1;
+}
+.landmark-canvas-wrap {
+  padding: 3px;
+  box-sizing: border-box;
+}
+.landmark-canvas {
+  background: #222;
+  width: 100%;
+  transform: scale(-1, 1);
+  cursor: pointer;
+}
+.landmark-canvas:hover {
+  opacity: 0.5;
+  background: #666;
+}
+.landmark-canvas.removed {
+  opacity: 0.35;
+  background: #999;
+}

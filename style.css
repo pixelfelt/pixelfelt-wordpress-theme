@@ -97,6 +97,11 @@ table {
 	max-width: 650px;
 }
 
+.col-5 {
+	display: inline-block;
+	width: 20%;
+}
+
 @media (max-width: 1450px) and (min-width: 768px) {
 	body .vc_col-sm-3, body .vc_col-sm-9 {
     width: 50% !important;
@@ -205,3 +210,4 @@ body:not(.handsfree-model-weboji) .handsfree-show-start-when-no-weboji .handsfre
 body:not(.handsfree-model-hands) .handsfree-show-start-when-no-hands .handsfree-show-when-stopped {display: inline-block !important;}
 body:not(.handsfree-model-hands).handsfree-loading .handsfree-show-start-when-no-hands .handsfree-show-when-stopped {display: none !important;}
 body:not(.handsfree-model-hands) .handsfree-show-start-when-no-hands .handsfree-show-when-started {display: none !important;}
+
