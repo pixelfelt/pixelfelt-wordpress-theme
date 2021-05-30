@@ -10,6 +10,7 @@ include get_stylesheet_directory() . '/shortcodes/demo/plugin/pinchClick/index.p
 include get_stylesheet_directory() . '/shortcodes/demo/plugin/pinchers.php';
 include get_stylesheet_directory() . '/shortcodes/demo/p5-handtracking-draw/index.php';
 include get_stylesheet_directory() . '/shortcodes/demo/aframe-look-around/index.php';
+include get_stylesheet_directory() . '/shortcodes/gesture/hands/index.php';
 
 /**
  * Admin styles
