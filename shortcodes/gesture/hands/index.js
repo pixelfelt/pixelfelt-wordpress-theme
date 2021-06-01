@@ -1,4 +1,6 @@
 $(function () {
+  enlighterBackup()
+    
   App = new Vue({
     el: '#page-content',
 
@@ -101,6 +103,9 @@ $(function () {
       if (this.recordedShapes.length) {
         this.renderRecording()
       }
+
+      // Restore Enlighters
+      enlighterRestoreBackups()
     },
   
     destroyed () {
