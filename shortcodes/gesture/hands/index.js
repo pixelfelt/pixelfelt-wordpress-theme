@@ -105,6 +105,7 @@ $(function () {
       }
 
       // Reposition debugger
+      handsfree.disablePlugins('browser')
       handsfree.showDebugger()
       const $debugger = document.querySelector('#debugger')
       $debugger && $debugger.appendChild(handsfree.debug.$wrap)
