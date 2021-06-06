@@ -25,7 +25,14 @@ I find it easiest to just [install Local by Flywheel](https://localwp.com/) and 
 
 ---
 
+# Dev Notes
+
+- Remove SEO metabox from specific cpt: https://plugintests.com/plugins/wporg/all-in-one-seo-pack/tips
+
+---
+
 # IMPORTANT NOTES
 - When using Enlighter plugin (syntax highlighting), tabs will be removed if the codeblock is inside a Vue component. To fix this, use `enlighterBackup()` before mounting the Vue app, then inside its mount event run `enlighterRestore()`...otherwise whitespaces will be removed by Vue. See:
   - `js/global.js`
   - Example: `/shortcodes/gesture/hand/index.js`
+

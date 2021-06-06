@@ -32,3 +32,14 @@ add_action('wp_enqueue_scripts', function () {
   wp_enqueue_style('handsfree', 'https://unpkg.com/handsfree@8.4.3/build/lib/assets/handsfree.css');
   wp_enqueue_script('global', get_stylesheet_directory_uri() . '/js/global.js', ['jquery', 'handsfree'], null, true);
 });
+
+/**
+ * Plugin Overrides
+ * @see https://wordpress.stackexchange.com/a/55106
+ */
+add_action('add_meta_boxes', function () {
+  $cpts = ['social-media'];
+  foreach($cpts as $cpt) {
+    remove_meta_box('aioseo-settings', $cpt, 'normal');
+  }
+}, 20);
